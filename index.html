@@ -202,15 +202,19 @@
       <div class="project-grid">
         <article class="project-card">
           <div class="project-top">
-            <h3>Energy Production Prediction using ANN</h3>
-            <span class="tag">PyTorch</span>
+            <h3>Deepfake Detector (Real vs Fake Images)</h3>
+            <span class="tag">PyTorch + Django</span>
           </div>
+          <p>
+            A web app that detects real vs fake images using a custom CNN served via Django.
+            Users upload an image, get a live preview, and receive a verdict plus P(fake).
+          </p>
           <ul>
-            <li>Built a fully connected ANN with Linear layers, ReLU, and Softmax output.</li>
-            <li>Implemented preprocessing with scaling, feature separation, and train-test split.</li>
-            <li>Executed forward pass, CrossEntropy loss, and backprop for optimization.</li>
-            <li>Tuned learning rate, epochs, and hidden layers to improve performance.</li>
+            <li>In-memory inference only (no file or database storage).</li>
+            <li>Preprocesses to 32x32 RGB and scales to [0,1].</li>
+            <li>CNN outputs a sigmoid probability P(fake) for the final verdict.</li>
           </ul>
+          <a class="project-link" href="https://deepfake-3ux1.onrender.com/" target="_blank" rel="noreferrer">Live Demo</a>
         </article>
 
         <article class="project-card">
@@ -236,6 +240,9 @@
         <p>Highlights from competitions and community work.</p>
       </div>
       <div class="achievement-card">
+        <div class="achievement-media">
+          <img src="Hackathon1.jpg" alt="Innofusion Hackathon team moment" />
+        </div>
         <h3>3rd Place - Innofusion Hackathon (Data Science Club)</h3>
         <p>
           A 36-hour innovation sprint. Presented the project to judges from F22 Labs
