@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #f6efe7;
-  --bg-2: #efe2d2;
-  --ink: #1d1a17;
-  --muted: #5e554c;
-  --accent: #d96b3a;
-  --accent-2: #3a6fd9;
-  --card: #fff7ee;
-  --stroke: #d7c8b7;
-  --shadow: 0 16px 40px rgba(29, 26, 23, 0.12);
+  --bg: #050505;
+  --bg-2: #0a0a0a;
+  --ink: #ffffff;
+  --muted: #a0a0a0;
+  --accent: #00f0ff;
+  --accent-2: #ff003c;
+  --card: rgba(20, 20, 25, 0.6);
+  --stroke: rgba(255, 255, 255, 0.1);
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -25,10 +25,17 @@ html {
 body {
   font-family: "Space Grotesk", system-ui, sans-serif;
   color: var(--ink);
-  background: radial-gradient(1200px 600px at 10% -10%, #ffe8d5 0%, transparent 60%),
-    radial-gradient(900px 480px at 90% 10%, #e5efff 0%, transparent 55%),
-    var(--bg);
+  background: var(--bg);
   line-height: 1.6;
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
 @keyframes rise {
@@ -87,8 +94,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(246, 239, 231, 0.9);
-  backdrop-filter: blur(10px);
+  background: rgba(5, 5, 5, 0.7);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--stroke);
 }
 
@@ -129,8 +136,7 @@ img {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(217, 107, 58, 0.2), rgba(58, 111, 217, 0.15));
-  mask-image: radial-gradient(700px 400px at 70% 10%, #000 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.05), transparent 70%);
   pointer-events: none;
 }
 
@@ -177,12 +183,20 @@ img {
 }
 
 .btn.primary {
-  background: var(--ink);
-  color: #fff;
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
 .btn.ghost {
   background: transparent;
+  color: var(--ink);
+  border-color: var(--stroke);
+}
+
+.btn.ghost:hover {
+  border-color: var(--ink);
 }
 
 .quick {
@@ -251,6 +265,8 @@ img {
   border: 1px solid var(--stroke);
   border-radius: 20px;
   padding: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -263,7 +279,8 @@ img {
 .achievement-card:hover,
 .contact-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 50px rgba(29, 26, 23, 0.18);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+  border-color: rgba(0, 240, 255, 0.4);
 }
 
 .about-card h3,
@@ -309,6 +326,8 @@ img {
   border: 1px solid var(--stroke);
   border-radius: 24px;
   padding: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
 }
 
@@ -343,12 +362,13 @@ img {
 }
 
 .tag {
-  background: rgba(217, 107, 58, 0.15);
+  background: rgba(0, 240, 255, 0.1);
   color: var(--accent);
   padding: 4px 10px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
+  border: 1px solid rgba(0, 240, 255, 0.3);
 }
 
 .achievement-card {
@@ -373,7 +393,7 @@ img {
   padding: 16px;
   border-radius: 16px;
   border: 1px dashed var(--stroke);
-  background: #fffdf9;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .project-link {
